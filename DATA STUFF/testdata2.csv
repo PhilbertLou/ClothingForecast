@@ -1,0 +1,19 @@
+Umbrella,Sunscreen,Snowpants/long johns),Dress,T-Shirt (or any 1 layer item),Long shirt,Shorts/skirt,"Long pants (Jeans, sweatpants, etc)","Long breezy pants (thin loose pants, athletic pants, etc)",Thin sweater,Thick sweater,Windbreaker/raincoat,Humidity,Pressure,Wspeed,Winter coat,Temp,Result
+0,0,1,0,0,1,0,1,0,0,1,0,0,0,0,1,-25,TRUE
+0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,1,-14,TRUE
+0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,-15,FALSE
+0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,1,-11,TRUE
+0,1,0,0,1,0,1,0,0,0,1,0,0,0,0,1,50,TRUE
+0,0,1,0,1,0,0,0,1,1,0,0,0,0,0,0,6,FALSE
+1,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,8,FALSE
+1,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,7,FALSE
+1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,6,FALSE
+0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,8,TRUE
+1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,9,FALSE
+1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,9,FALSE
+0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,1,20,FALSE
+0,0,1,0,1,0,0,1,0,1,0,0,0,0,0,1,19,FALSE
+0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,18,TRUE
+0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,1,17,FALSE
+0,0,1,0,1,0,0,0,1,1,0,0,0,0,0,1,16,FALSE
+0,0,1,0,1,0,0,0,1,0,1,0,0,0,0,1,15,FALSE
