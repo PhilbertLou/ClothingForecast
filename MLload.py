@@ -4,7 +4,7 @@ from tensorflow import keras
 
 from sklearn.model_selection import train_test_split
 
-key = '052d065281c185db20f824d4b2ecf002'
+key = 'enter key here'
 location = 'New York'
 response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={location}&appid={key}&units=metric')
 print(response.status_code)
