@@ -1,4 +1,4 @@
-Welcome to WeatherWear, a program to help you decide what to wear on a given day! This program uses tensorflow to learn what clothing combinations should be worn on which temperature and weather conditions and can be trained to your personal reference. 
+Welcome to WeatherWear, a program to help you decide what to wear on a given day! This program uses tensorflow to create a neural network that learn what clothing combinations should be worn on which temperature and weather conditions and can be trained to your personal reference. 
 
 More features coming soon!
 
