@@ -1,0 +1,21 @@
+{% extends "users/layout.html" %}
+{% block body %}
+  <h1>MAKE ACCOUNT</h1>
+
+<!-- make mesage if someone already has username or if password is too short etc -->
+  {% if message %}
+    <div> {{ message }} </div>
+  {% endif %}
+
+  <form action="{%url 'makeacc'%}" method="post">
+    {% csrf_token %}
+    <input type="text" name ="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="text" name ="city" placeholder="City (full name)">
+    <input type="text" name ="country" placeholder="Country (e.g. US)">
+    <input type="submit" value="Enter">
+  </form>
+
+  <a href="{% url 'login' %}">Go back</a>
+
+{% endblock %}

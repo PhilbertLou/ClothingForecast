@@ -1,0 +1,94 @@
+{% extends "users/layout.html" %}
+
+{% block body %}
+
+  <h1>HELLO! {{ request.user.username }}</h1>
+  <!--<h4>Date and time: {{ weatherinfo.4 }}</h4>-->
+  <h4>Your location: {{weatherinfo.2 }}, {{weatherinfo.3}}</h4>
+  <h4>Weather Condition: {{ weatherinfo.1 }} <br><br>Feels like: {{ weatherinfo.0 }}</h4>
+
+  <h2>Select which combinations you do not like, then press train so the machine knows for next time!</h2>
+    <form action="{%url 'remove'%}" method="post">
+    {% csrf_token %}
+  <ul>
+        {% for combo in clothes %}
+            <li>
+                {{forloop.counter0|add:'1'}}: {{combo}}
+                <input type="checkbox" id= {{forloop.counter0|add:'1'}} name="want" value={{forloop.counter0|add:'1'}}>
+                <label for="{{forloop.counter0|add:'1'}}">Do not like</label><br>
+            </li>
+        {% endfor%}
+  </ul>
+
+  <input type="submit" value="Train">
+
+  </form>
+
+  <br><br>
+
+  <h2>Don't see your combination? See if our recommendation has what you want</h2>
+  <form action="{%url 'getbackup'%}" method="post">
+  {% csrf_token %}
+
+  <input type="submit" value="Get Our Recommended Combos">
+
+  </form>
+
+  <h2>Want to add something you don't see for this weather? Click on what you want and click add.</h2>
+  <form action="{%url 'trainnew'%}" method="post">
+  {% csrf_token %}
+
+    {% if note %}
+        {{ note }}
+    {% endif %}
+    <p>Please select if you would like to wear/use one of these:</p>
+    <input type="radio" id="Umbrella" name="spec" value="0">
+    <label for="0">Umbrella</label><br>
+    <input type="radio" id="Sunscreen" name="spec" value="1">
+    <label for="1">Sunscreen</label><br>
+    <input type="radio" id="Snowpants" name="spec" value="2">
+    <label for="2">Snowpants</label><br>
+    <input type="radio" id="None" name="spec" value="-1">
+    <label for="-1">None</label><br>
+
+    <p>Please select your first layer:</p>
+    <input type="radio" id="Dress" name="fl" value="3">
+    <label for="3">Dress</label><br>
+    <input type="radio" id="T-Shirt" name="fl" value="4">
+    <label for="4">T-Shirt</label><br>
+    <input type="radio" id="Long shirt" name="fl" value="5">
+    <label for="5">Long Shirt</label><br>
+
+    <p>Please select your choice of pants:</p>
+    <input type="radio" id="Shorts/Skirt" name="p" value="6">
+    <label for="6">Shorts/Skirt</label><br>
+    <input type="radio" id="Long Pants" name="p" value="7">
+    <label for="7">Long Pants</label><br>
+    <input type="radio" id="Breezy/Thin Pants" name="p" value="8">
+    <label for="8">Breezy/Thin Pants</label><br>
+    <input type="radio" id="None (Intended for Dress only)" name="p" value="-1">
+    <label for="-1">None (Choose for dress only)</label><br>
+
+    <p>Please select your outer layer:</p>
+    <input type="radio" id="Thin Sweater" name="ol" value="9">
+    <label for="9">Thin Sweater</label><br>
+    <input type="radio" id="Thick Sweater" name="ol" value="10">
+    <label for="10">Thick Sweater</label><br>
+    <input type="radio" id="WindBreaker" name="ol" value="11">
+    <label for="11">Windbreaker</label><br>
+    <input type="radio" id="None" name="ol" value="-1">
+    <label for="-1">None</label><br>
+
+    <p>Please select if you would like to wear a winter coat:</p>
+    <input type="radio" id="Winter Coat" name="wc" value="12">
+    <label for="12">Winter Coat</label><br>
+    <input type="radio" id="No Winter Coat" name="wc" value="-1">
+    <label for="-1">No Winter Coat</label><br>
+
+  <input type="submit" value="add">
+
+  </form>
+
+  <a href="{% url 'logout' %}">Logout</a>
+  <a href="{% url 'changeinfo' %}">Change Personal Information</a>
+{% endblock %}

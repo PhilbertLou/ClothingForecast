@@ -1,0 +1,28 @@
+{% extends "users/layout.html" %}
+{% block body %}
+  <h1>CHANGE INFO</h1>
+
+<!-- make mesage if someone already has username or if password is too short etc -->
+  {% if message %}
+    <div> {{ message }} </div>
+  {% endif %}
+
+  <h2>Change Password</h2>
+  <form action="{%url 'changepass'%}" method="post">
+    {% csrf_token %}
+    <input type="password" name ="oldpass" placeholder="Old Password">
+    <input type="password" name="newpass" placeholder="New Password">
+    <input type="submit" value="Enter">
+  </form>
+
+  <h2>Update Location</h2>
+  <form action="{%url 'changeloc'%}" method="post">
+    {% csrf_token %}
+    <input type="text" name ="city" placeholder="City">
+    <input type="text" name="country" placeholder="Country">
+    <input type="submit" value="Enter">
+  </form>
+
+  <a href="{% url 'index' %}">Go back</a>
+
+{% endblock %}
