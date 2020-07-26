@@ -1,5 +1,5 @@
 <h3>Brief Overview:</h3>
-Welcome to Clothing Forecast (formerly known as WeatherWear), a program to help you decide what to wear on a given day! This program uses TensorFlow to create a neural network that learns what clothing combinations should be worn on which temperature and weather conditions and can be trained to your personal preference.
+Welcome to Clothing Forecast (formerly known as WeatherWear), a program to help you decide what to wear on a given day! This web app uses TensorFlow to create a neural network that learns what clothing combinations should be worn on which temperature and weather conditions and can be trained to your personal preference.
 
 More features coming soon!
 
