@@ -1,0 +1,77 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      Login
+    </title>
+
+{% endblock %}
+
+{% block body %}
+<div class="blackbox rmoverflowy">
+<nav class="nav bg-dark headertext">
+  <a class="nav-link active whitelink" href="{% url 'WeatherWear' %}">Clothing Forecast</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Dashboard</a>
+  <a class="nav-link whitelink" href="{% url 'newuserhowtouse' %}">How To Use</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Clothing Help</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Change Personal Information</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+  <a class="nav-link disabled rightalign1" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+</nav>
+</div>
+
+<div class="blackbox fullscreen rmoverflowy">
+<br><br>
+<div class="blackbox">
+  <br><br>
+  <div class ="headertext centre pinktext">
+  <h1>LOGIN</h1>
+  </div>
+
+  {% if message %}
+    <div class="alertsize2 headertext" >
+    <div class="alert alert-danger" role="alert"> {{ message }} </div>
+    </div>
+  {% endif %}
+  {% if goodmessage %}
+    <div class="alertsize2 headertext" >
+    <div class="alert alert-success" role="alert"> {{ goodmessage }} </div>
+    </div>
+  {% endif %}
+
+  <br><br>
+
+  <form action="{%url 'login'%}" method="post" class ="centre">
+    {% csrf_token %}
+    <div class="headertext inputbox" >
+        <div class="form-group pinktext">
+            <div class = "left">
+                <label for="username ">Username</label>
+            </div>
+            <input type="text" class="form-control graybox" name ="username" placeholder="Username">
+        </div>
+    </div>
+    <br><br>
+    <div class="inputbox headertext" >
+        <div class="form-group pinktext">
+            <div class = "left">
+                <label for="password">Password</label>
+            </div>
+            <input type="password" class="form-control graybox" name="password" placeholder="Password">
+        </div>
+    </div>
+    <br><br><br>
+    <input type="submit" class="btn btn-outline-light submit headertext" value="Login">
+  </form>
+
+  <div class ="centre container">
+  <a class="whitelink headertext" href="{% url 'makeacc' %}">Make account</a>
+  <br><br><br><br><br><br><br><br><br><br>
+  </div>
+
+<br><br>
+</div>
+
+</div>
+{% endblock %}

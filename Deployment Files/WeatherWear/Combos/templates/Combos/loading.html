@@ -1,0 +1,37 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      Redirecting...
+    </title>
+    <meta http-equiv="refresh"
+        content="0; url = {% url 'index' %}" />
+
+{% endblock %}
+
+{% block body %}
+<nav class="nav bg-dark headertext">
+  <a id="logo" class="nav-link active whitelink" href="{% url 'index' %}">Clothing Forecast</a>
+  <a id="dash" class="nav-link whitelink" href="{% url 'index' %}">Dashboard</a>
+  <a class="nav-link whitelink" href="#">How To Use</a>
+  <a class="nav-link whitelink" href="{% url 'clothes' %}">Clothing Help</a>
+  <a class="nav-link whitelink" href="{% url 'changeinfo' %}">Change Personal Information</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+  <a class="nav-link whitelink rightalign1" href="{% url 'logout' %}">Logout</a>
+</nav>
+
+<div id="loading" class="fullscreen pinkbox rmoverflowy">
+    <div class="d-flex justify-content-center loadpos">
+        <div class="spinner-grow" style="width: 8rem; height: 8rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </div>
+
+    <div class="blacktext headertext centre loadtextpos">
+            <h3>Your information is being processed... Please wait a couple of seconds</h3>
+    </div>
+</div>
+
+{% endblock %}

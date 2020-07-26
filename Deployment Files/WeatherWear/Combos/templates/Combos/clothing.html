@@ -1,0 +1,87 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      Clothing
+    </title>
+
+{% endblock %}
+
+{% block body %}
+
+<nav class="nav bg-dark headertext">
+  <a class="nav-link active whitelink" href="{% url 'loading' %}">Clothing Forecast</a>
+  <a class="nav-link whitelink" href="{% url 'loading' %}">Dashboard</a>
+  <a class="nav-link whitelink" href="{% url 'howtouse' %}">How To Use</a>
+  <a class="nav-link whitelink" href="{% url 'clothes' %}">Clothing Help</a>
+  <a class="nav-link whitelink" href="{% url 'changeinfo' %}">Change Personal Information</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+  <a class="nav-link whitelink rightalign1" href="{% url 'logout' %}">Logout</a>
+</nav>
+
+<div id="main" class="pinkbox headertext">
+<div class="jumbotron leftbox flex-container backgroundred vertalign">
+    <div class="flex-child box headertext">
+  <h1 class="display-4">Special items:</h1>
+    </div>
+
+    <div class="flex-child box centre lead">
+      <p>Umbrella: An umbrella to keep you dry on a rainy day.</p>
+      <p>Sunscreen: Avoid sunburns and skin damage by applying sunscreen when you are outside.</p>
+      <p>Snowpants: Stay warm on a cold day. This icon also refers to an underlayer (e.g. long johns)</p>
+    </div>
+</div>
+
+<div class="jumbotron leftbox flex-container backgroundblack vertalign">
+
+    <div class="flex-child box pinktext">
+  <h1 class="display-4">First layer:</h1>
+    </div>
+
+    <div class="flex-child box centre pinktext lead">
+      <p>Dress: A one-piece dress.</p>
+      <p>T-shirt: This mainly describes a regular t-shirt, with the option of an underlayer (either under or as the t-shirt).</p>
+      <p>Long sleeve: A t-shirt with long sleeves. Not to be confused with a thin hoodie/sweater.</p>
+    </div>
+
+</div>
+
+<div class="jumbotron leftbox flex-container backgroundred vertalign">
+    <div class="flex-child box headertext">
+  <h1 class="display-4">Pants:</h1>
+    </div>
+
+    <div class="flex-child box centre lead">
+      <p>Shorts/Skirt: The shortest form of pants and usually worn on hotter days.</p>
+      <p>Long pants: Mainly describes pants such as jeans and sweatpants. They are on the thicker side.</p>
+      <p>Breezy/Athletic pants: Compared to long pants, these are thinner and can be worn on warmer days.</p>
+    </div>
+</div>
+
+<div class="jumbotron leftbox flex-container backgroundblack vertalign">
+
+    <div class="flex-child box pinktext">
+  <h1 class="display-4">Outer layer:</h1>
+    </div>
+
+    <div class="flex-child box centre pinktext lead">
+      <p>Thin sweater: This describes any piece of clothing you would wear overtop your first layer. However, this item is on the thinner side.</p>
+      <p>Thick sweater: This is similar to a thin sweater, except for the fact that it is thicker.</p>
+      <p>Windbreaker: This falls between thick and thin sweater. It also may be preferable on rainy days. This is originally not paired with a winter coat.</p>
+      <p>Winter Coat: This describes your thick winter coat. This is the only piece of clothing that can be worn with other
+        outer layers, except for the windbreaker (You can end up training this yourself, but this may take longer to train)</p>
+    </div>
+
+</div>
+
+<br><br>
+<div>
+    <div class="centre">
+        <a class="btn btn-dark btn-lg interestedbutton headertext" href="{% url 'loading'%}" role="button">Go back to the dashboard</a>
+    </div>
+    <br><br>
+</div>
+</div>
+
+{% endblock %}

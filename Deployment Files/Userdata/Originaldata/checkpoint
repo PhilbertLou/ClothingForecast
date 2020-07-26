@@ -1,0 +1,2 @@
+model_checkpoint_path: "Weatherwear1b"
+all_model_checkpoint_paths: "Weatherwear1b"

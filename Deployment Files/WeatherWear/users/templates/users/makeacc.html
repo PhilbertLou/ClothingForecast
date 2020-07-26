@@ -1,0 +1,99 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      Make Account
+    </title>
+
+{% endblock %}
+
+
+{% block body %}
+<div>
+<nav class="nav bg-dark headertext">
+  <a class="nav-link active whitelink" href="{% url 'WeatherWear' %}">Clothing Forecast</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Dashboard</a>
+  <a class="nav-link whitelink" href="{% url 'newuserhowtouse' %}">How To Use</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Clothing Help</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Change Personal Information</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+  <a class="nav-link disabled rightalign1" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+</nav>
+</div>
+
+<div class="blackbox">
+<br><br>
+<div class="blackbox">
+<br>
+<div class ="maintext pinktext headertext">
+    <h1>MAKE ACCOUNT</h1>
+</div>
+
+
+{% if message %}
+    <div class="centre alertsize2" >
+    <div class="alert alert-danger headertext" role="alert"> {{ message }} </div>
+    </div>
+{% endif %}
+
+<br>
+
+
+<form action="{%url 'makeacc'%}" method="post">
+    {% csrf_token %}
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left">
+                <label for="username">Username</label>
+            </div>
+            <input type="text" class="form-control graybox" name ="username" placeholder="Username">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left">
+                <label for="password">Password</label>
+            </div>
+            <input type="password" class="form-control graybox" name="password" placeholder="Password">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left2">
+                <label for="city">City</label>
+            </div>
+            <input type="text" class="form-control graybox" name ="city" placeholder="City (full name)">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="inputbox pinktext headertext">
+        <div class="form-group">
+            <div class = "left3">
+                <label for="country">Country</label>
+            </div>
+            <input type="text" class="form-control graybox" name ="country" placeholder="Country (e.g. US)">
+        </div>
+    </div>
+    <br><br><br>
+    <div class="centre">
+        <input type="submit" class="btn btn-outline-light submit headertext" value="Enter">
+    </div>
+</form>
+
+<div class ="centre">
+    <a class="whitelink headertext" href="{% url 'login' %}">Go back</a>
+</div>
+
+</div>
+<br><br><br><br><br><br><br><br><br>
+
+</div>
+
+{% endblock %}

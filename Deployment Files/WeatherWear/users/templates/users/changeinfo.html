@@ -1,0 +1,118 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      Change Info
+    </title>
+{% endblock %}
+
+{% block body %}
+<div>
+<nav class="nav bg-dark headertext">
+  <a class="nav-link active whitelink" href="{% url 'index' %}">Clothing Forecast</a>
+  <a class="nav-link whitelink" href="{% url 'index' %}">Dashboard</a>
+  <a class="nav-link whitelink" href="{% url 'howtouse' %}">How To Use</a>
+  <a class="nav-link whitelink" href="{% url 'clothes' %}">Clothing Help</a>
+  <a class="nav-link whitelink" href="{% url 'changeinfo' %}">Change Personal Information</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+  <a class="nav-link whitelink rightalign1" href="{% url 'logout' %}">Logout</a>
+</nav>
+</div>
+
+<div class="blackbox">
+<br>
+<div class="blackbox">
+  <br><br>
+  <div class ="maintext pinktext">
+  <h1>CHANGE INFO</h1>
+  </div>
+
+  {% if message %}
+    <div class="centre2" >
+    <div class="alert alert-danger headertext" role="alert"> {{ message }} </div>
+    </div>
+  {% endif %}
+
+{% if goodmessage %}
+<div class="centre2" >
+    <div class="alert alert-success headertext" role="alert"> {{ goodmessage }} </div>
+</div>
+{% endif %}
+
+  <br><br>
+
+  <div class ="maintext pinktext headertext">
+  <h3>Change Password</h3>
+  </div>
+  <form action="{%url 'changepass'%}" method="post">
+    {% csrf_token %}
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left4">
+                <label for="username">Old Password</label>
+            </div>
+            <input type="password" class="form-control graybox" name ="oldpass" placeholder="Old Password">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left5">
+                <label for="username">New Password</label>
+            </div>
+            <input type="password" class="form-control graybox" name="newpass" placeholder="New Password">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="centre">
+        <input type="submit" class="btn btn-outline-light submit headertext" value="Enter">
+    </div>
+  </form>
+
+    <br><br>
+
+    <div class ="maintext pinktext headertext">
+  <h3>Update Location</h3>
+  </div>
+  <form action="{%url 'changeloc'%}" method="post">
+    {% csrf_token %}
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left6">
+                <label for="username">City</label>
+            </div>
+            <input type="text" class="form-control graybox" name ="city" placeholder="City">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="inputbox pinktext headertext" >
+        <div class="form-group">
+            <div class = "left3">
+                <label for="username">Country</label>
+            </div>
+            <input type="text" class="form-control graybox" name="country" placeholder="Country">
+        </div>
+    </div>
+    <br><br>
+
+    <div class="centre">
+    <input type="submit" class="btn btn-outline-light submit headertext" value="Enter">
+    </div>
+  </form>
+
+  <br>
+
+    <div class ="centre">
+        <a class="whitelink headertext" href="{% url 'loading' %}">Go back</a>
+    </div>
+
+</div>
+<br><br><br><br>
+</div>
+{% endblock %}

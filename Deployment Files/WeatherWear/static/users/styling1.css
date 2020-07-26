@@ -1,0 +1,202 @@
+.maintext {
+    color: black;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+}
+
+.centre {
+    text-align: center;
+}
+
+.centre2{
+    text-align: center;
+    height: 50px;
+    width: 500px;
+    margin:0 auto;
+}
+
+.left{
+    position: relative;
+    right: 210px;
+}
+
+.left2{
+    position: relative;
+    right: 230px;
+}
+
+.left3{
+    position: relative;
+    right: 215px;
+}
+
+.left4{
+    position: relative;
+    right: 198px;
+}
+
+.left5{
+    position: relative;
+    right: 193px;
+}
+
+.left6{
+    position: relative;
+    right: 225px;
+}
+
+.submit{
+    width: 500px;
+    height: 45px;
+}
+
+.submit2{
+    width: 1300px;
+    height: 45px;
+}
+
+.resultbox{
+    width: 1300px;
+    height: 95px;
+    border: 1px;
+    margin: auto;
+    padding: 10px;
+}
+
+.rightalign{
+    text-align: right;
+    position: relative;
+    top: -15px;
+}
+
+.rightalign2{
+    text-align: right;
+    position: relative;
+    top: 62px;
+}
+
+.rightalign1{
+    margin-left:auto; margin-right:0;
+}
+
+.slideleft1{
+    position: relative;
+    right: 90px;
+}
+
+.boxtext{
+    position: relative;
+    left: 65px;
+}
+
+.long{
+    height: 850px;
+}
+
+.long2{
+    height: 475px;
+}
+
+.jumbo{
+    font-family: "Lucida Console", Courier, monospace;
+    font-size: 20px;
+}
+
+.box{
+    width: 50%;
+}
+
+.carouselbox{
+    height: 500px;
+}
+.carouselbox2{
+    postion: relative;
+}
+
+.slideup{
+    postion: relative;
+    top: -30px;
+}
+
+.backgroundred{
+    background:#ffd1dc !important;
+}
+
+.backgroundblack{
+    background:#343a40 !important;
+}
+
+.interestedbutton{
+    width: 1300px;
+    height: 45px;
+}
+
+.together{
+    margin: 0px;
+}
+
+.pinkbox{
+    background-color:#ffd1dc;
+}
+
+.pinktext{
+    color:#ffd1dc;
+}
+.blackbox{
+    background-color:#343a40;
+}
+
+.graybox{
+    background-color:#505962 !important;
+    border: 1px solid #ffd1dc !important;
+    color: #ffd1dc !important;
+}
+
+.whitetext{
+    color:white;
+}
+
+.whitelink{
+    color:white;
+}
+
+.whitelink:hover{
+    color:#ffd1dc;
+}
+
+.blacklink{
+    color:black;
+}
+
+.blacklink:hover{
+    color:white;
+}
+
+.loginbox{
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    border: 1px black;
+}
+
+.loginbox2{
+    width: 600px;
+    height: 675px;
+    margin: auto;
+    border: 1px black;
+}
+
+.loginbox3{
+    width: 600px;
+    height: 915px;
+    margin: auto;
+    border: 1px black;
+}
+
+.red{
+    color:red;
+}
+
+

@@ -1,0 +1,254 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      Dashboard
+    </title>
+
+{% endblock %}
+
+{% block body %}
+
+<nav class="nav bg-dark headertext">
+    <a id="logo" class="nav-link active whitelink" href="{% url 'index' %}">Clothing Forecast</a>
+    <a id="dash" class="nav-link whitelink" href="{% url 'index' %}">Dashboard</a>
+    <a class="nav-link whitelink" href="{% url 'howtouse' %}">How To Use</a>
+    <a class="nav-link whitelink" href="{% url 'clothes' %}">Clothing Help</a>
+    <a class="nav-link whitelink" href="{% url 'changeinfo' %}">Change Personal Information</a>
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+    <a class="nav-link whitelink rightalign1" href="{% url 'logout' %}">Logout</a>
+</nav>
+
+<div id="loading" class="fullscreen pinkbox rmoverflowy" style="display:none">
+    <div class="d-flex justify-content-center loadpos">
+        <div class="spinner-grow" style="width: 8rem; height: 8rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </div>
+
+    <div class="blacktext headertext centre loadtextpos">
+            <h3>Your information is being processed... Please wait a couple of seconds</h3>
+    </div>
+</div>
+
+<div id="main" class="blackbox showoverflow">
+    {% if note %}
+    <div class="centre" >
+        <div class="alert alert-danger" role="alert"> {{ note }} </div>
+    </div>
+    {% endif %}
+
+<div class="jumbotron leftbox flex-container backgroundred godownhelp">
+    <div class="flex-child box headertext godownhelp">
+        <h1 class="display-4">Welcome back, {{ request.user.username }}!</h1>
+        <br>
+        <p class="lead">Your location: {{weatherinfo.2 }}, {{weatherinfo.3}} <br>
+            Weather Condition: {{ weatherinfo.1 }} <br><br>
+                Feels like: {{ weatherinfo.0 }}°C</p>
+        </div>
+
+    <div class="flex-child box godownhelp">
+    {% if weatherinfo.1 == 'Clear' %}
+        <img src="{% static 'users/Sun.png' %}" class="smallerimgbox">
+    {% elif weatherinfo.1 == 'Clouds'%}
+        <img src="{% static 'users/Cloud.png' %}" class="smallerimgbox">
+    {% elif weatherinfo.1 == 'Thunderstorm' %}
+        <img src="{% static 'users/Thunder.png' %}" class="smallerimgbox">
+    {% elif weatherinfo.1 == 'Drizzle' or weatherinfo.1 == 'Rain' %}
+        <img src="{% static 'users/Rain.png' %}" class="smallerimgbox">
+    {% elif weatherinfo.1 == 'Snow' %}
+        <img src="{% static 'users/snow.png' %}" class="smallerimgbox">
+    {% else %}
+        <img src="{% static 'users/Fog.png' %}" class="smallerimgbox">
+    {% endif %}
+    </div>
+</div>
+
+<div class="centre padding maintext">
+  <h3 class="pinktext">Select which combinations you do not like, then press train so the machine knows for next time!</h3>
+  </div>
+    <form action="{%url 'remove'%}" method="post">
+    {% csrf_token %}
+    {% for combo in clothes %}
+    <div class="relativebox border border-pink resultbox4 pinktext headertext container">
+        {{forloop.counter0|add:'1'}}:
+        {% for item in combo%}
+        {% if item != combo|last %}
+            {{item}},
+        {% else %}
+            {{item}}
+        {% endif %}
+        {% endfor %}
+        {% for item in combo %}
+            {% if item == "Umbrella"%}
+                <img src={% static 'users/Umbrella.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Breezy pants"%}
+                <img src={% static 'users/Bapants.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Dress"%}
+                <img src={% static 'users/Dress.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Thick sweater"%}
+                <img src={% static 'users/Tsweat.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Long pants"%}
+                <img src={% static 'users/Longp.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Long shirt"%}
+                <img src={% static 'users/Lshirt_.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Thin sweater"%}
+                <img src={% static 'users/Tsweat 1.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Shorts/skirt"%}
+                <img src={% static 'users/Ss.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Sunscreen"%}
+                <img src={% static 'users/Ss_.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Winter coat"%}
+                <img src={% static 'users/Wcoat.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Snowpants"%}
+                <img src={% static 'users/SPants.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Tee"%}
+                <img src={% static 'users/TShirt.png' %} class="clothesbox">
+            {% endif %}
+            {% if item == "Windbreaker"%}
+                <img src={% static 'users/Wb.png' %} class="clothesbox">
+            {% endif %}
+        {% endfor %}
+
+        <div id="hiddenboxes">
+            <input type="checkbox" id= {{forloop.counter0|add:'1'}} name="want" value={{forloop.counter0|add:'1'}}>
+            <label class="hiddenlabels2" for="{{forloop.counter0|add:'1'}}"></label><br>
+        </div>
+    </div>
+    {% endfor%}
+
+    <br>
+
+    <div class="centre resultsbox3">
+        <input id="train" type="submit" class="btn btn-outline-light resultbox3 maintext" value="Train">
+    </div>
+  </form>
+
+  <br><br>
+
+  <h3 class="centre pinktext maintext padding">Don't see your combination?</h3>
+
+    <div class="centre">
+        <button type="button" id="morebutton" class="btn btn-outline-light submit maintext">Explore more options!</button>
+    </div>
+
+<br><br>
+
+<div id="more" style="display: none;">
+
+    <h3 class="centre pinktext maintext padding">See if our recommendation has what you want</h3>
+
+    <form action="{%url 'getbackup'%}" method="post">
+    {% csrf_token %}
+
+    <div class="centre">
+        <input type="submit" id="getrec" class="btn btn-outline-light submit maintext" value="Get Our Recommended Combos">
+    </div>
+
+
+    </form>
+
+    <br><br>
+    <div class="centre maintext">
+        <h2 class="pinktext">Want to add something you don't see for this weather and temperature? Choose what you want and click add.</h2>
+    </div>
+
+    <br>
+
+    <form action="{%url 'trainnew'%}" method="post" class="centre">
+    {% csrf_token %}
+
+    <br>
+
+<div class="table-responsive tablewidth">
+<table class="table">
+  <thead>
+    <tr>
+      <th><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">Clothing Piece</label></th>
+    <th><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">Selection</label></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">Special Items</label></td>
+    <td><select class="custom-select my-1 mr-sm-2 pinktext headertext" id="inlineFormCustomSelectPref" name="si">
+        <option selected>Choose...</option>
+        <option value="-1">None</option>
+        <option value="0">Umbrella</option>
+        <option value="1">Sunscreen</option>
+        <option value="2">Snowpants</option>
+    </select>
+    </tr>
+    <tr>
+      <td><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">First Layer</label></td>
+    <td><select class="custom-select my-1 mr-sm-2 pinktext headertext" id="inlineFormCustomSelectPref" name="fl">
+        <option selected>Choose...</option>
+        <option value="3">Dress</option>
+        <option value="4">T-shirt</option>
+        <option value="5">Long-sleeved shirt</option>
+    </select></td>
+    </tr>
+    <tr>
+      <td><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">Pants</label></td>
+    <td><select class="custom-select my-1 mr-sm-2 pinktext headertext" id="inlineFormCustomSelectPref" name="p">
+        <option selected>Choose...</option>
+        <option value="-1">None (for dress option only)</option>
+        <option value="6">Shorts/Skirt</option>
+        <option value="7">Long pants</option>
+        <option value="8">Breezy/Athletic pants</option>
+    </select></td>
+    </tr>
+    <tr>
+      <td><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">Second Layer</label></td>
+    <td><select class="custom-select my-1 mr-sm-2 pinktext headertext" id="inlineFormCustomSelectPref" name="sl">
+        <option selected>Choose...</option>
+        <option value="-1">None</option>
+        <option value="9">Thin sweater</option>
+        <option value="10">Thick sweater</option>
+        <option value="11">Windbreaker</option>
+    </select></td>
+    </tr>
+    <tr>
+      <td><label class="my-1 mr-2 pinktext headertext" for="inlineFormCustomSelectPref">Option for Winter Coat</label></td>
+    <td><select class="custom-select my-1 mr-sm-2 pinktext headertext" id="inlineFormCustomSelectPref" name="wc">
+        <option selected>Choose...</option>
+        <option value="-1">No winter coat</option>
+        <option value="12">Winter Coat</option>
+    </select></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+    <div class="centrei padding">
+        <input id="trainnew" type="submit" class="btn btn-outline-light submit headertext" value="Add">
+    </div>
+
+  </form>
+
+</div>
+<br><br>
+
+<div class="centre">
+    <a href="#top" class="whitelink maintext">Back to Top</a>
+</div>
+
+<br><br>
+</div>
+
+{% endblock %}

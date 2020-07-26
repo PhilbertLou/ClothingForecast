@@ -1,0 +1,104 @@
+{% extends "users/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <title>
+      How To Use
+    </title>
+
+{% endblock %}
+
+{% block body %}
+
+<nav class="nav bg-dark headertext">
+  <a class="nav-link active whitelink" href="{% url 'loading' %}">Clothing Forecast</a>
+  <a class="nav-link whitelink" href="{% url 'loading' %}">Dashboard</a>
+  <a class="nav-link whitelink" href="#">How To Use</a>
+  <a class="nav-link whitelink" href="{% url 'clothes' %}">Clothing Help</a>
+  <a class="nav-link whitelink" href="{% url 'changeinfo' %}">Change Personal Information</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming Soon</a>
+  <a class="nav-link whitelink rightalign1" href="{% url 'logout' %}">Logout</a>
+</nav>
+
+<div id="main" class="pinkbox">
+<div class="jumbotron leftbox flex-container backgroundred godownhelp">
+    <div class="flex-child box headertext godownhelp">
+  <h1 class="display-4">How to Use Clothing Forecast</h1>
+  <p class="lead">It's super simple!</p>
+
+  <hr class="my-4">
+  <p class="jumbo">Congratulations! You made your own account, which will give you your personalized suggestions.</p>
+  <br>
+  <p class="jumbo">This website is easy to navigate and use, you'll love Weather Wear in no time!
+    This guide will outline all of the current features of this website.</p>
+    </div>
+
+    <div class="flex-child box helpimg godownhelp">
+  <img src="{% static 'users/Logoblack.png' %}" class="smallerimgbox">
+    </div>
+</div>
+
+<div class="jumbotron leftbox flex-container backgroundblack godownhelp">
+
+    <div class="flex-child box godownhelp">
+  <img src="{% static 'users/dashnew.png' %}" class="imgbox">
+    </div>
+
+    <div class="flex-child box rightalign pinktext">
+  <p class="jumbo">When you log in, you will be greeted by the dashboard with your location, weather, and temperature.</p>
+  <br>
+  <p class="jumbo">You will also see our suggested choices for the current weather. This will change to be more personalized as you add more data to it.</p>
+  <br>
+  <p class="jumbo">Whenever you access your dashboard, it will take some time to load. Don't panic! The machine is working hard to produce your results.</p>
+  <br>
+  <p class="jumbo">On the top, you will see the navigation bar. Explore the options! The logout button is on the top right.</p>
+    </div>
+
+</div>
+
+<div class="jumbotron leftbox flex-container backgroundred godownhelp">
+    <div class="flex-child box godownhelp">
+<p class="jumbo">On the dashboard, you will see the options recommended to you.</p>
+  <br>
+  <p class="jumbo">To get more accurate results, think about the options and select the ones you dislike and press the button at the bottom to train the machine.</p>
+  <br>
+  <p class="jumbo">If you do not see an option that you like, you can click the 'Explore more options' button to add them.</p>
+  <br>
+  <p class="jumbo">You can either see our recommended suggestions if your selection becomes too narrow, or you can put a specific combination in yourself.</p>
+    </div>
+
+    <div class="flex-child box rightalign godownhelp">
+  <img src="{% static 'users/dash.png' %}" class="imgbox">
+    </div>
+</div>
+
+<div class="jumbotron leftbox flex-container backgroundblack pinktext godownhelp">
+
+    <div class="flex-child box godownhelp">
+  <img src="{% static 'users/Bot.png' %}" class="smallerimgbox">
+    </div>
+
+    <div class="flex-child box rightalign godownhelp">
+<p class="jumbo">Important note: This machine is loosely trained on intervals of temperature and weather conditions and may not immediately be accurate.</p>
+  <br>
+  <p class="jumbo">To make it more accurate, please give it your input.</p>
+  <br>
+  <p class="jumbo">Also, changes may not happen immediately, it may take a couple of times for it to fully register and remember.</p>
+  <br>
+  <p class="jumbo">You may notice sometimes that the machine will recommend a wide range. This is normal when the machine is indecisive. You can make it more accurate by whittling down the options, making it more specific.</p>
+    </div>
+
+</div>
+
+<br><br>
+<div>
+    <h1 class="display-4 centre headertext">Go see your personalized wardrobe choices!</h1>
+
+    <div class="centre">
+        <a class="btn btn-dark btn-lg interestedbutton headertext" href="{% url 'loading'%}" role="button">Click here to go back to the dashboard</a>
+    </div>
+    <br><br>
+</div>
+</div>
+
+{% endblock %}
