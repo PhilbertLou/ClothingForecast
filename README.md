@@ -4,7 +4,7 @@ Welcome to Clothing Forecast (formerly known as WeatherWear), a program to help 
 More features coming soon!
 
 Full external documentation on how to use this can be found on the site: <a href="http://philbert.pythonanywhere.com/users/ClothingForecast">Click here</a>
-<br>(This will bring you to the homepage, which gives a brief overview of the application in further detail. The user's guide can be accessed through the nav bar.)
+<br>(This will bring you to the homepage, which gives a brief overview of the application in further detail. The user's guide can be accessed through the nav bar).
 
 <h3>Technologies</h3>
 Backend: <strong/>Django framework</strong> is used to overall construct this web application. The default Django user/admin/auth is used to make and control user accounts. All information related to a user is stored in a <strong>SQLite</strong> database (the table is based on a custom model). In the application side of this project, <strong>TensorFlow</strong> libraries are used to construct a neural network. This takes the supervised machine learning approach as it is fed 7000 samples of data and its results, and is loosely trained to 'general preferences' in different weather conditions. More information is trained into the existing neural network, resulting in more personalized results as the user continues to use this web application. <strong><a href="https://openweathermap.org/">Openweatherapi</a></strong> is used to fetch the current weather data that will be used for predictions. When the user is logged out, their information is stored using <strong>Google Cloud Storage</strong>, and retrieved from there to be used when they log in.    
