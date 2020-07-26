@@ -5,3 +5,5 @@ More features coming soon!
 Edit 07/07/20: The ML part is finished, code is cleaned up and the old stuff can be found in folders that indicate the old files. WeatherWear1.0 and WeatherWearTrainer1 are the most updated versions, using information from WeatherWear folder.
 
 Edit 17/07/20: All functions have been put on a functional website
+
+Edit 26/07/20: Final deployment files can be found in the depployment files folder. This is the final and updated version of the previous uploaded file.
