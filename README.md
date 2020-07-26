@@ -14,6 +14,7 @@ Frontend: <strong>Boostrap</strong>, a CSS framework, is used to style the webpa
 
 <br><br>
 <h3>Development updates:</h3>
+
 Edit 07/07/20: The ML part is finished, code is cleaned up and the old stuff can be found in folders that indicate the old files. WeatherWear1.0 and WeatherWearTrainer1 are the most updated versions, using information from WeatherWear folder.
 
 Edit 17/07/20: All functions have been put on a functional website and can be found in the Ver 1.2 Githubver folder.
