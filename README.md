@@ -3,7 +3,7 @@ Welcome to Clothing Forecast (formerly known as WeatherWear), a program to help 
 
 More features coming soon!
 
-Full external documentation on how to use this can be found on the site: <a href="http://philbert.pythonanywhere.com/users/ClothingForecast">Click here</a>
+Full external documentation on how to use this can be found on the site: <a href="https://philbert.pythonanywhere.com/users/ClothingForecast">Click here</a>
 <br>(This will bring you to the homepage, which gives a brief overview of the application in further detail. The user's guide can be accessed through the nav bar).
 
 <h3>Technologies:</h3>
