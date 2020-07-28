@@ -36,13 +36,15 @@ def loginpage(request):
         if user is not None:
             login(request, user)
 
-            #This gets the user's information from google cloud services
-            bucket = storage_client.get_bucket(bucketname)
-            blob = bucket.blob(f'{user.username}/{user.username}.data-00000-of-00001')
-            blob.download_to_filename(f'environment/Userdata/{user.username}/{user.username}.data-00000-of-00001')
+            #Only gets the info if it doesnt exist already (so it doesnt ovveride current with an older ver)
+            if not os.path.exists(f"environement/Userdata/{user.username}/{user.username}.index"):
+                #This gets the user's information from google cloud services
+                bucket = storage_client.get_bucket(bucketname)
+                blob = bucket.blob(f'{user.username}/{user.username}.data-00000-of-00001')
+                blob.download_to_filename(f'environment/Userdata/{user.username}/{user.username}.data-00000-of-00001')
 
-            blob = bucket.blob(f'{user.username}/{user.username}.index')
-            blob.download_to_filename(f'environment/Userdata/{user.username}/{user.username}.index')
+                blob = bucket.blob(f'{user.username}/{user.username}.index')
+                blob.download_to_filename(f'environment/Userdata/{user.username}/{user.username}.index')
 
             return HttpResponseRedirect(reverse("loading"))
 

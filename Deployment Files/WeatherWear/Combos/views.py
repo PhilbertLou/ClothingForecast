@@ -5,6 +5,8 @@ from . import WeatherWear as ww
 import tensorflow as tf
 import requests, ast
 from users.models import UserProfile
+from os import path
+from google.cloud import storage
 
 valuedic = {}
 siteinfo = {}
@@ -15,6 +17,18 @@ def index(request, username):
 
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
+
+    #If the user logged out on another device, this prevents the current device from getting an error by retrieving necessary info
+    if not path.exists(f"environement/Userdata/{request.user.username}/{request.user.username}.index"):
+        bucketname = 'bucketname'
+        storage_client = storage.Client.from_service_account_json('json file')
+
+        bucket = storage_client.get_bucket(bucketname)
+        blob = bucket.blob(f'{user.username}/{user.username}.data-00000-of-00001')
+        blob.download_to_filename(f'environment/Userdata/{user.username}/{user.username}.data-00000-of-00001')
+
+        blob = bucket.blob(f'{user.username}/{user.username}.index')
+        blob.download_to_filename(f'environment/Userdata/{user.username}/{user.username}.index')
 
     #This will get weather informaiton to display about the logged in user
     entries = UserProfile.objects.filter(user=request.user)
