@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-#This function duplicates a the weights for a model
+#This function duplicates the weights for a model
 def dupe(savepath):
 
     #The original NN is made
